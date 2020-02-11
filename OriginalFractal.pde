@@ -12,7 +12,10 @@ public void setup()
   blu = 255;
   gre = 50;
   myFractal(700,800,400);
-  cloudFractal(0,200);
+  cloudFractal(50, 100, 200);
+  cloudFractal(500, 100, 200);
+  cloudFractal(250, 300, 200);
+  cloudFractal(700, 300, 200);
 }
 
 public void myFractal(int x, int y, int siz)
@@ -29,15 +32,13 @@ public void myFractal(int x, int y, int siz)
   }
 }
 
-public void cloudFractal(int x, int y)
+public void cloudFractal(int x, int y, int rad)
 {
-  fill(255,255,255,(int)(Math.random()*130)+10);
-  ellipse(x, y, 120, 50);
-  ellipse(x+20,y-20,70,30);
-  ellipse(x-30,y+15,60,40);
-
-  if (x <= 800)
-  {
-    cloudFractal(x+10, (int)(Math.random()*400));
-  }
+  fill(255, 255, 255, 245);
+   //fill(255,255,255,(int)(Math.random()*130)+10);
+   ellipse(x, y, rad, rad);
+   if (rad > 2) {
+      cloudFractal(x+rad/2, y, rad/2);
+      cloudFractal(x-rad/2, y, rad/2);
+    }
 }
